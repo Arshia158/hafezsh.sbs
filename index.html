@@ -522,7 +522,7 @@
             <div class="top_nav_flex">
                 <ul id="nav-menu">
                     <li><a href="/" id="home-link" class="nav-link active">فال حافظ</a></li>
-                    <li><a href="/poems" id="poems-link" class="nav-link">غزل‌ها</a></li>
+                    <!--<li><a href="/poems" id="poems-link" class="nav-link">غزل‌ها</a></li>-->
                     <li><a href="/about" id="about-link" class="nav-link">حافظ شناسی</a></li>
                 </ul>
             </div>
@@ -685,7 +685,7 @@
             <p>کلیه حقوق مادی و معنوی این سامانه متعلق به <a href="https://hafezsh.sbs/">HafezSh.sbs</a> می باشد.</p>
             <p>
                 <a href="/">فال حافظ</a> | 
-                <a href="/poems">غزل‌ها</a> | 
+                <!-- <a href="/poems">غزل‌ها</a> | -->
                 <a href="/about">حافظ شناسی</a>
             </p>
         </footer>
@@ -694,10 +694,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const homeLink = document.getElementById('home-link');
-            const poemsLink = document.getElementById('poems-link');
             const aboutLink = document.getElementById('about-link');
             const homePage = document.getElementById('home-page');
-            const poemsPage = document.getElementById('poems-page');
             const aboutPage = document.getElementById('about-page');
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const navMenu = document.getElementById('nav-menu');
@@ -708,7 +706,6 @@
             
             function showPage(pageId, linkElement) {
                 homePage.style.display = 'none';
-                poemsPage.style.display = 'none';
                 aboutPage.style.display = 'none';
                 
                 document.querySelectorAll('.nav-link').forEach(link => {
@@ -718,6 +715,8 @@
                 const targetPage = document.getElementById(pageId);
                 if (targetPage) {
                     targetPage.style.display = 'block';
+                    linkElement.classList.add('active');
+                } else {
                     linkElement.classList.add('active');
                 }
                 
@@ -732,9 +731,7 @@
             function updatePageTitle(pageId) {
                 let title = "فال و شناسنامه حافظ شیرازی";
                 
-                if (pageId === 'poems-page') {
-                    title += " | جستجو در غزل‌های حافظ";
-                } else if (pageId === 'about-page') {
+                if (pageId === 'about-page') {
                     title += " | حافظ شناسی";
                 }
                 
@@ -744,11 +741,6 @@
             homeLink.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('home-page', homeLink);
-            });
-            
-            poemsLink.addEventListener('click', function(event) {
-                event.preventDefault();
-                showPage('poems-page', poemsLink);
             });
             
             aboutLink.addEventListener('click', function(event) {
@@ -762,8 +754,6 @@
                     
                     if (event.state.page === 'home-page') {
                         linkElement = homeLink;
-                    } else if (event.state.page === 'poems-page') {
-                        linkElement = poemsLink;
                     } else if (event.state.page === 'about-page') {
                         linkElement = aboutLink;
                     }
@@ -775,9 +765,7 @@
             });
             
             const path = window.location.pathname;
-            if (path === '/poems') {
-                showPage('poems-page', poemsLink);
-            } else if (path === '/about') {
+            if (path === '/about') {
                 showPage('about-page', aboutLink);
             } else {
                 history.replaceState({page: 'home-page'}, '', '/');
@@ -804,21 +792,26 @@
                 }
                 const data = await response.json();
 
-                falTitle.textContent = data.number;
-                falImageContainer.innerHTML = `<img src="${data.image}" alt="تصویر فال حافظ" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">`;
-                falPoem.textContent = data.ghazal;
-                falInterpreter.innerHTML = '<strong>تعبیر فال:</strong> ' + data.tabir;
-                falAudioContainer.innerHTML = `
-                    <div class="audio-player-container">
-                        <h3>پخش صوتی غزل</h3>
-                        <div class="audio-player">
-                            <audio controls>
-                                <source src="${data.voice}" type="audio/mpeg">
-                                مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-                            </audio>
+                if (data && data.number && data.ghazal && data.tabir) {
+                    falTitle.textContent = data.number;
+                    falImageContainer.innerHTML = `<img src="${data.image}" alt="تصویر فال حافظ" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">`;
+                    falPoem.textContent = data.ghazal;
+                    falInterpreter.innerHTML = '<strong>تعبیر فال:</strong> ' + data.tabir;
+                    falAudioContainer.innerHTML = `
+                        <div class="audio-player-container">
+                            <h3>پخش صوتی غزل</h3>
+                            <div class="audio-player">
+                                <audio controls>
+                                    <source src="${data.voice}" type="audio/mpeg">
+                                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+                                </audio>
+                            </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                } else {
+                    console.error('Invalid or incomplete data received from API:', data);
+                    throw new Error("Invalid data structure from API");
+                }
 
                 loadingSpinner.classList.remove('show');
                 resultContainer.classList.add('show');
