@@ -984,7 +984,6 @@
                     searchPoem.textContent = 'غزل حافظ با عنوان ' + foundPoem.title + ' (شماره ' + foundPoem.id + ') در اینجا نمایش داده می‌شود.'; 
                     searchInterpreter.innerHTML = '<strong>تعبیر غزل:</strong> ' + foundPoem.interpreter;
                     
-                    // Add audio player if search was by ID
                     if (searchType === 'id') {
                         const audioUrl = `https://www.baharnaz.com/Divan-Voice/Hafez-Song${foundPoem.id}.mp3`;
                         searchAudioContainer.innerHTML = `
