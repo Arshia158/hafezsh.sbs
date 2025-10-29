@@ -163,6 +163,8 @@
             width: 100%;
             height: auto;
             display: block;
+            max-width: 500px; /* 限制最大宽度 */
+            margin: 0 auto; /* 居中显示 */
         }
         .niat_button {
             text-align: center;
@@ -228,6 +230,8 @@
             width: 100%;
             height: auto;
             display: block;
+            max-width: 450px; /* افزایش اندازه عکس آرامگاه حافظ */
+            margin: 0 auto; /* مرکزیت */
         }
         .figure-caption {
             color: #6c757d;
@@ -336,6 +340,48 @@
             padding: 5px;
         }
 
+        /* اضافه کردن سیستم گرید */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        
+        .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-8, .col-md-12 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        
+        @media (min-width: 768px) {
+            .col-md-3 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+            .col-md-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+            .col-md-5 {
+                flex: 0 0 41.666667%;
+                max-width: 41.666667%;
+            }
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            .col-md-8 {
+                flex: 0 0 66.666667%;
+                max-width: 66.666667%;
+            }
+            .col-md-12 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 992px) {
             .container {
                 padding: 0 15px;
@@ -401,6 +447,7 @@
             
             .hafezie-img {
                 margin-bottom: 30px;
+                max-width: 100%; /* در صفحات کوچک تمام عرض */
             }
             
             .not_show_tablet {
@@ -432,6 +479,10 @@
             #fal-poem {
                 font-size: 1.1rem;
                 padding: 15px 20px;
+            }
+            
+            .figure-img {
+                max-width: 100%; /* در صفحات کوچک تمام عرض */
             }
         }
 
@@ -560,13 +611,13 @@
                 <link itemprop="sameAs" href="https://fa.wikipedia.org/wiki/%D8%AD%D8%A7%D9%81%D8%B8">
                 
                 <div class="row whos_hafez">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <figure class="figure">
                             <img itemprop="image" src="https://uploadkon.ir/uploads/76cc28_25attraction-1576931141-1.jpg" alt="آرامگاه حافظ (حافظیه) در شیراز" class="figure-img">
                             <figcaption class="figure-caption" itemprop="description">آرامگاه حافظ در شیراز استان فارس</figcaption>
                         </figure>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <p itemprop="description">
                             <span itemprop="name">خواجه شمس‌الدین محمد بن بهاءالدّین محمد حافظ شیرازی</span>
                             (زاده ح. ۷۲۷ (قمری)- درگذشته ۷۹۲ (قمری))، معروف به 
@@ -714,7 +765,6 @@
                 const data = await response.json();
 
                 if (data && data.poem && data.explanation) {
-                    // Format the poem array as a single string with line breaks
                     const poemText = data.poem.join('\n');
                     
                     falTitle.textContent = 'فال حافظ';
