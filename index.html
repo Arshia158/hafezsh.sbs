@@ -291,6 +291,7 @@
             color: var(--secondary-color);
             margin-bottom: 30px;
             line-height: 2.4;
+            white-space: pre-line;
         }
         #fal-interpreter {
             font-size: 1.1rem;
@@ -323,30 +324,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        
-        .audio-player-container {
-            margin-top: 30px;
-            text-align: center;
-            background-color: #f1f8ff;
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid #d1e7ff;
-        }
-        .audio-player-container h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        .audio-player {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .audio-player audio {
-            width: 100%;
-            height: 50px;
-            border-radius: 8px;
         }
 
         .mobile-menu-toggle {
@@ -456,10 +433,6 @@
                 font-size: 1.1rem;
                 padding: 15px 20px;
             }
-            
-            .audio-player-container {
-                padding: 15px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -507,10 +480,6 @@
             
             #fal-interpreter {
                 font-size: 1rem;
-            }
-            
-            .audio-player-container h3 {
-                font-size: 1.1rem;
             }
         }
     </style>
@@ -570,57 +539,11 @@
             </div>
             
             <div id="fal-result-container">
-                <h2 id="fal-title"></h2>
-                <div id="fal-image-container"></div>
+                <h2 id="fal-title">فال حافظ</h2>
                 <div id="fal-poem"></div>
                 <p id="fal-interpreter"></p>
-                <div id="fal-audio-container"></div>
             </div>
         </div>
-        
-        <!--
-        <div id="poems-page" class="content-page" style="display: none;">
-            <header class="hero_header single_hero">
-                <div class="row display_flex">
-                    <div class="col-md-12">
-                        <h1 class="other_page">جستجو در غزل‌های حافظ</h1>
-                    </div>
-                </div>
-            </header>
-            
-            <div class="search-section">
-                <h2>جستجوی غزل</h2>
-                <div class="search-form">
-                    <div class="search-input-group">
-                        <input type="text" id="search-input" class="search-input" placeholder="شماره یا عنوان غزل را وارد کنید...">
-                        <button id="search-button" class="search-button" onclick="searchPoem()">جستجو</button>
-                    </div>
-                    <div class="search-options">
-                        <div class="search-option">
-                            <input type="radio" id="search-by-id" name="search-type" value="id" checked>
-                            <label for="search-by-id">جستجو بر اساس شماره</label>
-                        </div>
-                        <div class="search-option">
-                            <input type="radio" id="search-by-title" name="search-type" value="title">
-                            <label for="search-by-title">جستجو بر اساس عنوان</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="search-loading-spinner">
-                <div class="spinner"></div>
-                <p>در حال جستجوی غزل...</p>
-            </div>
-            
-            <div id="search-result-container">
-                <h2 id="search-title"></h2>
-                <div id="search-poem"></div>
-                <p id="search-interpreter"></p>
-                <div id="search-audio-container"></div>
-            </div>
-        </div>
-        -->
         
         <div id="about-page" class="content-page" style="display: none;">
             <header class="hero_header single_hero">
@@ -773,14 +696,12 @@
         });
 
         async function getFal() {
-            const apiUrl = 'https://api.majidapi.ir/fun/fal?type=&token=lnrq6m5smgiudqx:9ew5nRdlRHGMUcYax7nU';
+            const apiUrl = 'https://api.falehafez.org/';
             const resultContainer = document.getElementById('fal-result-container');
             const loadingSpinner = document.getElementById('loading-spinner');
             const falTitle = document.getElementById('fal-title');
-            const falImageContainer = document.getElementById('fal-image-container');
             const falPoem = document.getElementById('fal-poem');
             const falInterpreter = document.getElementById('fal-interpreter');
-            const falAudioContainer = document.getElementById('fal-audio-container');
 
             loadingSpinner.classList.add('show');
             resultContainer.classList.remove('show');
@@ -792,22 +713,13 @@
                 }
                 const data = await response.json();
 
-                if (data && data.number && data.ghazal && data.tabir) {
-                    falTitle.textContent = data.number;
-                    falImageContainer.innerHTML = `<img src="${data.image}" alt="تصویر فال حافظ" style="max-width: 100%; border-radius: 10px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;">`;
-                    falPoem.textContent = data.ghazal;
-                    falInterpreter.innerHTML = '<strong>تعبیر فال:</strong> ' + data.tabir;
-                    falAudioContainer.innerHTML = `
-                        <div class="audio-player-container">
-                            <h3>پخش صوتی غزل</h3>
-                            <div class="audio-player">
-                                <audio controls>
-                                    <source src="${data.voice}" type="audio/mpeg">
-                                    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
-                                </audio>
-                            </div>
-                        </div>
-                    `;
+                if (data && data.poem && data.explanation) {
+                    // Format the poem array as a single string with line breaks
+                    const poemText = data.poem.join('\n');
+                    
+                    falTitle.textContent = 'فال حافظ';
+                    falPoem.textContent = poemText;
+                    falInterpreter.innerHTML = '<strong>تعبیر فال:</strong> ' + data.explanation;
                 } else {
                     console.error('Invalid or incomplete data received from API:', data);
                     throw new Error("Invalid data structure from API");
@@ -820,10 +732,8 @@
                 console.error('Could not fetch the fal:', error);
                 loadingSpinner.classList.remove('show');
                 falTitle.textContent = 'خطا در دریافت فال';
-                falImageContainer.innerHTML = '';
                 falPoem.textContent = '';
                 falInterpreter.textContent = 'متاسفانه در ارتباط با سرور حافظ مشکلی پیش آمده است. لطفاً کمی دیرتر دوباره تلاش کنید.';
-                falAudioContainer.innerHTML = '';
                 resultContainer.classList.add('show');
             }
         }
