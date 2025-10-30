@@ -625,6 +625,202 @@
             height: 18px;
         }
         
+        /* Virtual Tour Styles */
+        .virtual-tour-header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        
+        .virtual-tour-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .virtual-tour-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .virtual-tour-intro {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .virtual-tour-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        .virtual-tour-container {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .virtual-tour-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+        
+        .virtual-tour-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tour-control-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tour-control-btn:hover {
+            background-color: #6d3410;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .tour-control-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .tour-info {
+            background-color: #f5f0e8;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .tour-info h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tour-info ul {
+            list-style-type: none;
+            padding-right: 0;
+        }
+        
+        .tour-info li {
+            margin-bottom: 10px;
+            padding-right: 25px;
+            position: relative;
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .tour-info li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .fullscreen-btn:hover {
+            background-color: rgba(109, 52, 16, 0.9);
+            transform: scale(1.1);
+        }
+        
+        .fullscreen-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .fullscreen-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            border: none;
+        }
+        
+        .fullscreen-exit-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10000;
+        }
+        
+        .fullscreen-exit-btn:hover {
+            background-color: rgba(109, 52, 16, 0.9);
+            transform: scale(1.1);
+        }
+        
+        .fullscreen-exit-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -694,6 +890,29 @@
                 max-width: 95%;
                 max-height: 70%;
             }
+            
+            .virtual-tour-iframe {
+                height: 400px;
+            }
+            
+            .iframe-container {
+                height: 400px;
+            }
+            
+            .tour-control-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .fullscreen-btn {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .fullscreen-btn svg {
+                width: 18px;
+                height: 18px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -721,6 +940,48 @@
             .modal-title {
                 font-size: 1.2rem;
             }
+            
+            .virtual-tour-iframe {
+                height: 300px;
+            }
+            
+            .iframe-container {
+                height: 300px;
+            }
+            
+            .tour-control-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .tour-control-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .fullscreen-btn {
+                width: 30px;
+                height: 30px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .fullscreen-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .fullscreen-exit-btn {
+                width: 40px;
+                height: 40px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .fullscreen-exit-btn svg {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 </head>
@@ -738,6 +999,7 @@
                 <li><a href="/" class="nav-link active">فال حافظ</a></li>
                 <li><a href="/about" class="nav-link">حافظ شناسی</a></li>
                 <li><a href="/gallery" class="nav-link">تصاویر حافظ</a></li>
+                <li><a href="/virtual-tour" class="nav-link">تور مجازی</a></li>
             </ul>
         </nav>
         
@@ -1015,6 +1277,59 @@
             </div>
         </div>
         
+        <div id="virtual-tour-page" class="content-page">
+            <div class="virtual-tour-header">
+                <h1>تور مجازی حافظیه</h1>
+                <p>از آرامگاه حافظ شیرازی به صورت ۳۶۰ درجه و تعاملی بازدید کنید</p>
+            </div>
+            
+            <div class="virtual-tour-intro">
+                <p>
+                    حافظیه یا آرامگاه خواجه شمس‌الدین محمد حافظ شیرازی، یکی از مهم‌ترین جاذبه‌های گردشگری شهر شیراز است. این آرامگاه در شمال شهر شیراز و در کنار باغ ارم قرار دارد. با استفاده از تور مجازی زیر، می‌توانید از این مکان تاریخی و فرهنگی به صورت ۳۶۰ درجه و تعاملی بازدید کنید و تمام جزئیات آن را از نزدیک ببینید.
+                </p>
+                <p>
+                    برای حرکت در تور مجازی، می‌توانید با ماوس کلیک و کشیده کنید تا در محیط ۳۶۰ درجه حرکت کنید. همچنین می‌توانید روی نقاط مشخص شده کلیک کنید تا به بخش‌های مختلف آرامگاه منتقل شوید.
+                </p>
+            </div>
+            
+            <div class="virtual-tour-container">
+                <div class="iframe-container" id="iframe-container">
+                    <button class="fullscreen-btn" id="fullscreen-btn" title="تمام صفحه">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                    </button>
+                    <iframe id="virtual-tour-iframe" class="virtual-tour-iframe" src="https://www.panoman.ir/vt/shiraz/hafezieh/" allowfullscreen></iframe>
+                </div>
+                
+                <div class="virtual-tour-controls">
+                    <button class="tour-control-btn" id="reload-tour-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </svg>
+                        بارگذاری مجدد
+                    </button>
+                    <button class="tour-control-btn" id="open-new-tab-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                        </svg>
+                        باز کردن در تب جدید
+                    </button>
+                </div>
+                
+                <div class="tour-info">
+                    <h3>نکات بازدید مجازی:</h3>
+                    <ul>
+                        <li>برای حرکت در محیط ۳۶۰ درجه، ماوس را کلیک کرده و بکشید</li>
+                        <li>برای بزرگنمایی، از چرخ ماوس استفاده کنید</li>
+                        <li>روی نقاط دایره‌ای در تصویر کلیک کنید تا به بخش‌های دیگر منتقل شوید</li>
+                        <li>برای مشاهده بهتر، از دکمه تمام صفحه در بالای تصویر استفاده کنید</li>
+                        <li>اگر تصویر به درستی بارگذاری نشد، از دکمه بارگذاری مجدد استفاده کنید</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <p>کلیه حقوق مادی و معنوی این سامانه متعلق به <a href="https://hafezsh.sbs/">HafezSh.sbs</a> می باشد.</p>
         </footer>
@@ -1042,9 +1357,11 @@
             const homeLink = document.querySelector('a[href="/"]');
             const aboutLink = document.querySelector('a[href="/about"]');
             const galleryLink = document.querySelector('a[href="/gallery"]');
+            const virtualTourLink = document.querySelector('a[href="/virtual-tour"]');
             const homePage = document.getElementById('home-page');
             const aboutPage = document.getElementById('about-page');
             const galleryPage = document.getElementById('gallery-page');
+            const virtualTourPage = document.getElementById('virtual-tour-page');
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const navLinks = document.getElementById('nav-links');
             
@@ -1082,6 +1399,8 @@
                     title += " | حافظ شناسی";
                 } else if (pageId === 'gallery-page') {
                     title += " | تصاویر حافظ";
+                } else if (pageId === 'virtual-tour-page') {
+                    title += " | تور مجازی حافظیه";
                 }
                 
                 document.title = title;
@@ -1102,6 +1421,11 @@
                 showPage('gallery-page', galleryLink);
             });
             
+            virtualTourLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('virtual-tour-page', virtualTourLink);
+            });
+            
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {
                     let linkElement;
@@ -1112,6 +1436,8 @@
                         linkElement = aboutLink;
                     } else if (event.state.page === 'gallery-page') {
                         linkElement = galleryLink;
+                    } else if (event.state.page === 'virtual-tour-page') {
+                        linkElement = virtualTourLink;
                     }
                     
                     if (linkElement) {
@@ -1125,6 +1451,8 @@
                 showPage('about-page', aboutLink);
             } else if (path === '/gallery') {
                 showPage('gallery-page', galleryLink);
+            } else if (path === '/virtual-tour') {
+                showPage('virtual-tour-page', virtualTourLink);
             } else {
                 history.replaceState({page: 'home-page'}, '', '/');
             }
@@ -1166,6 +1494,45 @@
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
                     closeModal();
                 }
+            });
+            
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const reloadTourBtn = document.getElementById('reload-tour-btn');
+            const openNewTabBtn = document.getElementById('open-new-tab-btn');
+            const virtualTourIframe = document.getElementById('virtual-tour-iframe');
+            const iframeContainer = document.getElementById('iframe-container');
+            
+            fullscreenBtn.addEventListener('click', function() {
+                const fullscreenIframe = document.createElement('iframe');
+                fullscreenIframe.src = virtualTourIframe.src;
+                fullscreenIframe.className = 'fullscreen-iframe';
+                fullscreenIframe.allowFullscreen = true;
+                
+                const exitBtn = document.createElement('button');
+                exitBtn.className = 'fullscreen-exit-btn';
+                exitBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                `;
+                
+                exitBtn.addEventListener('click', function() {
+                    document.body.removeChild(fullscreenIframe);
+                    document.body.removeChild(exitBtn);
+                });
+                
+                document.body.appendChild(fullscreenIframe);
+                document.body.appendChild(exitBtn);
+                
+                fullscreenIframe.focus();
+            });
+            
+            reloadTourBtn.addEventListener('click', function() {
+                virtualTourIframe.src = virtualTourIframe.src;
+            });
+            
+            openNewTabBtn.addEventListener('click', function() {
+                window.open('https://www.panoman.ir/vt/shiraz/hafezieh/', '_blank');
             });
         });
 
