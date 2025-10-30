@@ -386,7 +386,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             margin: 25px 0;
@@ -661,7 +661,6 @@
             height: 18px;
         }
         
-        /* Virtual Tour Styles */
         .virtual-tour-header {
             text-align: center;
             padding: 40px 0;
@@ -857,6 +856,21 @@
             height: 24px;
         }
         
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -1040,6 +1054,11 @@
         </nav>
         
         <div id="home-page" class="content-page active">
+            <div class="breadcrumb">
+                <a href="/">خانه</a> &raquo;
+                <span>فال حافظ</span>
+            </div>
+            
             <div class="home-hero">
                 <h1>فال حافظ</h1>
                 <p>با نیت خالص و قلبی پاک، فال خود را از لسان‌الغیب بگیرید</p>
@@ -1082,6 +1101,11 @@
         </div>
         
         <div id="about-page" class="content-page">
+            <div class="breadcrumb">
+                <a href="/">خانه</a> &raquo;
+                <span>حافظ شناسی</span>
+            </div>
+            
             <div class="about-header">
                 <h1>حافظ شناسی</h1>
                 <p>زندگی و آثار خواجه شمس‌الدین محمد حافظ شیرازی</p>
@@ -1128,6 +1152,11 @@
         </div>
         
         <div id="gallery-page" class="content-page">
+            <div class="breadcrumb">
+                <a href="/">خانه</a> &raquo;
+                <span>تصاویر حافظ</span>
+            </div>
+            
             <div class="gallery-header">
                 <h1>تصاویر حافظ</h1>
                 <p>مجموعه‌ای از تصاویر هنری و تاریخی از خواجه حافظ شیرازی</p>
@@ -1323,6 +1352,11 @@
         </div>
         
         <div id="virtual-tour-page" class="content-page">
+            <div class="breadcrumb">
+                <a href="/">خانه</a> &raquo;
+                <span>تور مجازی حافظیه</span>
+            </div>
+            
             <div class="virtual-tour-header">
                 <h1>تور مجازی حافظیه</h1>
                 <p>از آرامگاه حافظ شیرازی به صورت ۳۶۰ درجه و تعاملی بازدید کنید</p>
@@ -1397,6 +1431,66 @@
         </div>
     </div>
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "فال حافظ",
+      "url": "https://hafezsh.sbs/",
+      "description": "فال حافظ آنلاین با تعبیر دقیق. دریافت فال حافظ، غزلیات حافظ و آشنایی با زندگی لسان‌الغیب",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hafezsh.sbs/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "خواجه شمس‌الدین محمد حافظ شیرازی",
+      "description": "شاعر بزرگ سدهٔ هشتم ایران و یکی از سخنوران نامی جهان",
+      "birthDate": "727",
+      "deathDate": "792",
+      "knowsAbout": "شعر فارسی، غزل، ادبیات فارسی",
+      "sameAs": [
+        "https://fa.wikipedia.org/wiki/%D8%AD%D8%A7%D9%81%D8%B8"
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "تصاویر حافظ",
+      "description": "مجموعه‌ای از تصاویر هنری و تاریخی از خواجه حافظ شیرازی",
+      "url": "https://hafezsh.sbs/gallery"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "name": "حافظیه",
+      "description": "آرامگاه خواجه شمس‌الدین محمد حافظ شیرازی، یکی از مهم‌ترین جاذبه‌های گردشگری شهر شیراز",
+      "url": "https://hafezsh.sbs/virtual-tour",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "شیراز",
+        "addressCountry": "ایران"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.6109,
+        "longitude": 52.5893
+      }
+    }
+    </script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const homeLink = document.querySelector('a[href="/"]');
@@ -1438,17 +1532,64 @@
             }
             
             function updatePageTitle(pageId) {
-                let title = "فال حافظ";
+                let title = "";
+                let description = "";
                 
-                if (pageId === 'about-page') {
-                    title += " | حافظ شناسی";
-                } else if (pageId === 'gallery-page') {
-                    title += " | تصاویر حافظ";
-                } else if (pageId === 'virtual-tour-page') {
-                    title += " | تور مجازی حافظیه";
+                switch(pageId) {
+                    case 'home-page':
+                        title = "فال حافظ | فال آنلاین با تعبیر دقیق";
+                        description = "فال حافظ آنلاین با تعبیر دقیق. دریافت فال حافظ، غزلیات حافظ و آشنایی با زندگی لسان‌الغیب";
+                        break;
+                    case 'about-page':
+                        title = "حافظ شناسی | زندگی‌نامه و آثار خواجه حافظ شیرازی";
+                        description = "زندگی‌نامه و آثار خواجه شمس‌الدین محمد حافظ شیرازی. آشنایی با لسان‌الغیب و بررسی اشعار و غزلیات حافظ";
+                        break;
+                    case 'gallery-page':
+                        title = "تصاویر حافظ | مجموعه تصاویر هنری و تاریخی حافظ شیرازی";
+                        description = "مجموعه‌ای از تصاویر هنری و تاریخی از خواجه حافظ شیرازی. مشاهده و دانلود تصاویر با کیفیت از حافظ";
+                        break;
+                    case 'virtual-tour-page':
+                        title = "تور مجازی حافظیه | بازدید ۳۶۰ درجه از آرامگاه حافظ";
+                        description = "تور مجازی و تعاملی از آرامگاه حافظ شیرازی. بازدید ۳۶۰ درجه از حافظیه و آشنایی با این مکان تاریخی";
+                        break;
                 }
                 
                 document.title = title;
+                
+                let metaDescription = document.querySelector('meta[name="description"]');
+                if (metaDescription) {
+                    metaDescription.setAttribute('content', description);
+                } else {
+                    metaDescription = document.createElement('meta');
+                    metaDescription.name = 'description';
+                    metaDescription.content = description;
+                    document.head.appendChild(metaDescription);
+                }
+                
+                let ogTitle = document.querySelector('meta[property="og:title"]');
+                if (ogTitle) {
+                    ogTitle.setAttribute('content', title);
+                }
+                
+                let ogDescription = document.querySelector('meta[property="og:description"]');
+                if (ogDescription) {
+                    ogDescription.setAttribute('content', description);
+                }
+                
+                let twitterTitle = document.querySelector('meta[property="twitter:title"]');
+                if (twitterTitle) {
+                    twitterTitle.setAttribute('content', title);
+                }
+                
+                let twitterDescription = document.querySelector('meta[property="twitter:description"]');
+                if (twitterDescription) {
+                    twitterDescription.setAttribute('content', description);
+                }
+                
+                let canonical = document.querySelector('link[rel="canonical"]');
+                if (canonical) {
+                    canonical.setAttribute('href', window.location.href);
+                }
             }
             
             homeLink.addEventListener('click', function(event) {
