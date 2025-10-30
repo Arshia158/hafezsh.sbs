@@ -383,6 +383,42 @@
             margin-top: 10px;
         }
         
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 25px 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: var(--border-radius);
+        }
+        
+        .video-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+        }
+        
+        .video-description {
+            text-align: center;
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
         .gallery-header {
             text-align: center;
             padding: 40px 0;
@@ -1075,6 +1111,15 @@
                 <p>
                     در دوران حکومت شاه شیخ ابواسحاق (متوفای ۷۵۸ ق) به دربار راه پیدا کرده و احتمالاً شغل دیوانی پیشه کرده‌است. شاعری پیشه اصلی او نبوده و امرار معاش او از طریق شغلی دیگر (احتمالاً دیوانی) تأمین می‌شده‌است. در این خصوص نیز اشارات متعددی در دیوان او وجود دارد که بیان‌کننده اتکای او به شغلی جدای از شاعری است. دربارهٔ سال دقیق تولد او بین مورخان و حافظ‌شناسان اختلاف نظر وجود دارد.
                 </p>
+                
+                <h2>فیلم مستند: حافظ، لسان‌الغیب</h2>
+                <p class="video-description">
+                    در این مستند به بررسی زندگی، آثار و تأثیرات حافظ شیرازی بر ادبیات فارسی و جهان پرداخته شده است. این فیلم نگاهی عمیق به شخصیت و جایگاه حافظ در تاریخ ادبیات ایران دارد.
+                </p>
+                
+                <div class="video-container">
+                    <iframe src="https://www.aparat.com/video/video/embed/videohash/D3xA5/vt/frame" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                </div>
                 
                 <p>
                     <a target="_blank" href="https://fa.wikipedia.org/wiki/%D8%AD%D8%A7%D9%81%D8%B8" rel="nofollow noreferrer noopener">منبع: ویکی‌پدیا</a>
