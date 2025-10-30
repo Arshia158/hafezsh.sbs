@@ -383,6 +383,248 @@
             margin-top: 10px;
         }
         
+        .gallery-header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .gallery-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .gallery-intro {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .gallery-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item {
+            background-color: var(--white-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-item-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+            background-color: #f5f5f5;
+        }
+        
+        .gallery-item:hover .gallery-item-image img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-content {
+            padding: 20px;
+        }
+        
+        .gallery-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .gallery-item-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .gallery-item-source {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        .gallery-item-source a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .gallery-item-source a:hover {
+            text-decoration: underline;
+        }
+        
+        .download-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2;
+        }
+        
+        .download-btn:hover {
+            background-color: rgba(109, 52, 16, 0.9);
+            transform: scale(1.1);
+        }
+        
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        
+        .image-modal.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+            margin: 0 auto;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+            max-width: 90%;
+            text-align: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .modal-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .modal-download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .modal-download-btn:hover {
+            background-color: #6d3410;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .modal-download-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -442,6 +684,16 @@
             #fal-result-container {
                 padding: 25px;
             }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                max-height: 70%;
+            }
         }
         
         @media (max-width: 576px) {
@@ -456,6 +708,18 @@
             #fal-poem {
                 font-size: 1.1rem;
                 padding: 20px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-info {
+                padding: 15px;
+            }
+            
+            .modal-title {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -473,6 +737,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="/" class="nav-link active">فال حافظ</a></li>
                 <li><a href="/about" class="nav-link">حافظ شناسی</a></li>
+                <li><a href="/gallery" class="nav-link">تصاویر حافظ</a></li>
             </ul>
         </nav>
         
@@ -555,17 +820,231 @@
             </div>
         </div>
         
+        <div id="gallery-page" class="content-page">
+            <div class="gallery-header">
+                <h1>تصاویر حافظ</h1>
+                <p>مجموعه‌ای از تصاویر هنری و تاریخی از خواجه حافظ شیرازی</p>
+            </div>
+            
+            <div class="gallery-intro">
+                <p>
+                    در این بخش، مجموعه‌ای از تصاویر مختلف حافظ شیرازی گردآوری شده است. از آنجایی که تصویر مستندی از چهره واقعی حافظ در دست نیست، تمامی این تصاویر بازسازی‌های هنری هستند که توسط هنرمندان مختلف در طول تاریخ خلق شده‌اند. هر تصویر دیدگاه خاصی از شخصیت و جایگاه حافظ را به نمایش می‌گذارد و بازتابی از تأثیر عمیق او بر فرهنگ و ادب ایران است.
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_36_30 PM.jpg" data-title="تصویر تولید شده توسط هوش مصنوعی" data-description="تصویر تولید شده توسط چت‌جی‌پی‌تی از روی نقاشی چهرهٔ حافظ">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_36_30 PM.jpg" alt="تصویر تولید شده توسط چت‌جی‌پی‌تی از روی نقاشی چهرهٔ حافظ">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_36_30 PM.jpg', 'تصویر تولید شده توسط هوش مصنوعی')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">تصویر تولید شده توسط هوش مصنوعی</h3>
+                        <p class="gallery-item-description">تصویر تولید شده توسط چت‌جی‌پی‌تی از روی نقاشی چهرهٔ حافظ</p>
+                        <div class="gallery-item-source">
+                            <i class="notranslate noindent-info-button done-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/lanjani-hafez-1186baac-3d45-4265-b3a7-fdf727d6b41d.jpg" data-title="چهرهٔ خواجه حافظ شیرازی" data-description="اثر نادر لنجانی. تصویر فعلی اهلی شیرازی در گنجور تابلوی حافظ اثر نادر لنجانی است.">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/lanjani-hafez-1186baac-3d45-4265-b3a7-fdf727d6b41d.jpg" alt="چهرهٔ خواجه حافظ شیرازی اثر نادر لنجانی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/lanjani-hafez-1186baac-3d45-4265-b3a7-fdf727d6b41d.jpg', 'چهرهٔ خواجه حافظ شیرازی')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">چهرهٔ خواجه حافظ شیرازی</h3>
+                        <p class="gallery-item-description">اثر نادر لنجانی. تصویر فعلی اهلی شیرازی در گنجور تابلوی حافظ اثر نادر لنجانی است.</p>
+                        <div class="gallery-item-source">
+                            منبع: <a href="https://lanjani.com/shop/p/%D9%86%D9%82%D8%A7%D8%B4%DB%8C-%D8%B1%D9%86%DA%AF-%D8%B1%D9%88%D8%BA%D9%86-%DA%86%D9%87%D8%B1%D9%87-%D8%AE%D9%88%D8%A7%D8%AC%D9%87-%D8%AD%D8%A7%D9%81%D8%B8-%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%DB%8C" target="_blank">گالری لنجانی</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez-shakiba.jpg" data-title="حافظ" data-description="اثر حجت الله شکیبا. تصویر استفاده شدهٔ ابتدایی برای کلیم کاشانی در گنجور اثر حجت الله شکیباست و گویا با نام و به نیت چهرهٔ خواجه حافظ ارائه شده است.">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez-shakiba.jpg" alt="حافظ اثر حجت الله شکیبا">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez-shakiba.jpg', 'حافظ')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">حافظ</h3>
+                        <p class="gallery-item-description">اثر حجت الله شکیبا. تصویر استفاده شدهٔ ابتدایی برای کلیم کاشانی در گنجور اثر حجت الله شکیباست و گویا با نام و به نیت چهرهٔ خواجه حافظ ارائه شده است.</p>
+                        <div class="gallery-item-source">
+                            منبع: <a href="https://fa.wikipedia.org/wiki/%D8%AD%D8%AC%D8%AA%E2%80%8C%D8%A7%D9%84%D9%84%D9%87_%D8%B4%DA%A9%DB%8C%D8%A8%D8%A7" target="_blank">ویکی‌پدیا</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/تابلو_حافظ_در_انجمن_آثار_و_مفاخر_فرهنگی.jpg" data-title="نگاره‌ای خیالی از چهرهٔ حافظ" data-description="اثر ابوالحسن صدیقی، سال ۱۳۵۰">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/تابلو_حافظ_در_انجمن_آثار_و_مفاخر_فرهنگی.jpg" alt="نگاره‌ای خیالی از چهرهٔ حافظ اثر ابوالحسن صدیقی، ۱۳۵۰">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/تابلو_حافظ_در_انجمن_آثار_و_مفاخر_فرهنگی.jpg', 'نگاره‌ای خیالی از چهرهٔ حافظ')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">نگاره‌ای خیالی از چهرهٔ حافظ</h3>
+                        <p class="gallery-item-description">اثر ابوالحسن صدیقی، سال ۱۳۵۰</p>
+                        <div class="gallery-item-source">
+                            منبع: <a href="https://commons.wikimedia.org/wiki/File:%D8%AA%D8%A7%D8%A8%D9%84%D9%88_%D8%AD%D8%A7%D9%81%D8%B8_%D8%AF%D8%B1_%D8%A7%D9%86%D8%AC%D9%85%D9%86_%D8%A2%D8%AB%D8%A7%D8%B1_%D9%88_%D9%85%D9%81%D8%A7%D8%AE%D8%B1_%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C.jpg" target="_blank">ویکی‌پدیا</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez.jpg" data-title="پرتره حافظ" data-description="اثر محمد بهرامی، سال ۱۳۷۶، تکنیک رنگ و روغن">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez.jpg" alt="پرتره حافظ اثر محمد بهرامی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/hafez.jpg', 'پرتره حافظ')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">پرتره حافظ</h3>
+                        <p class="gallery-item-description">اثر محمد بهرامی، سال ۱۳۷۶، تکنیک رنگ و روغن</p>
+                        <div class="gallery-item-source">
+                            منبع: <a href="http://bahramigallery.com/gallery-item/miniator/bahrami/hafez/por" target="_blank">گالری بهرامی</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/The_Soviet_Union_1971_CPA_3997_stamp_(Hafez).jpg" data-title="حافظ بر تمبر شوروی" data-description="تمبر شوروی به مناسبت ۶۵۰سالگی حافظ">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/The_Soviet_Union_1971_CPA_3997_stamp_(Hafez).jpg" alt="حافظ بر تمبر شوروی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/The_Soviet_Union_1971_CPA_3997_stamp_(Hafez).jpg', 'حافظ بر تمبر شوروی')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">حافظ بر تمبر شوروی</h3>
+                        <p class="gallery-item-description">تمبر شوروی به مناسبت ۶۵۰سالگی حافظ</p>
+                        <div class="gallery-item-source">
+                            منبع: گنجور
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (1).jpg" data-title="حافظ شیرازی" data-description="نگاره رسم شده از چکامه سرای بزرگ زبان و ادب پارسی؛ حافظ شیرازی که به کمک هوش مصنوعی تهیه شده است">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (1).jpg" alt="حافظ شیرازی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (1).jpg', 'حافظ شیرازی')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">حافظ شیرازی</h3>
+                        <p class="gallery-item-description">نگاره رسم شده از چکامه سرای بزرگ زبان و ادب پارسی؛ حافظ شیرازی که به کمک هوش مصنوعی تهیه شده است</p>
+                        <div class="gallery-item-source">
+                            منبع: گنجور
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (5)-ed569c83-48af-46bc-95ab-f42db9113ead.jpg" data-title="حافظ شیرازی" data-description="نگاره بسیار زیبا از چکامه سرای بزرگ زبان و ادب پارسی؛ حافظ شیرازی که به کمک هوش مصنوعی تهیه شده است">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (5)-ed569c83-48af-46bc-95ab-f42db9113ead.jpg" alt="حافظ شیرازی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/OIG (5)-ed569c83-48af-46bc-95ab-f42db9113ead.jpg', 'حافظ شیرازی')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">حافظ شیرازی</h3>
+                        <p class="gallery-item-description">نگاره بسیار زیبا از چکامه سرای بزرگ زبان و ادب پارسی؛ حافظ شیرازی که به کمک هوش مصنوعی تهیه شده است</p>
+                        <div class="gallery-item-source">
+                            منبع: گنجور
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_41_45 PM.jpg" data-title="تصویر واقع‌گرایانه حافظ" data-description="تصویر واقع‌گرایانه تولید شده از روی تصویر چهرهٔ حافظ در گنجور توسط هوش مصنوعی">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_41_45 PM.jpg" alt="تصویر واقع‌گرایانه تولید شده از روی تصویر چهرهٔ حافظ در گنجور توسط هوش مصنوعی">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/ChatGPT Image Apr 11, 2025, 09_41_45 PM.jpg', 'تصویر واقع‌گرایانه حافظ')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">تصویر واقع‌گرایانه حافظ</h3>
+                        <p class="gallery-item-description">تصویر واقع‌گرایانه تولید شده از روی تصویر چهرهٔ حافظ در گنجور توسط هوش مصنوعی</p>
+                        <div class="gallery-item-source">
+                            منبع: گنجور
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-item-image" data-src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/poet_2.jpg" data-title="حافظ" data-description="مناسب برای استفاده در ابعاد کوچک در نرم افزارهای گنجور و غیره">
+                        <img src="https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/poet_2.jpg" alt="حافظ">
+                        <button class="download-btn" onclick="downloadImage('https://i.ganjoor.net/images/PoetsPhotoSuggestions/orig/poet_2.jpg', 'حافظ')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="gallery-item-title">حافظ</h3>
+                        <p class="gallery-item-description">مناسب برای استفاده در ابعاد کوچک در نرم افزارهای گنجور و غیره</p>
+                        <div class="gallery-item-source">
+                            منبع: گنجور
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <p>کلیه حقوق مادی و معنوی این سامانه متعلق به <a href="https://hafezsh.sbs/">HafezSh.sbs</a> می باشد.</p>
         </footer>
+    </div>
+    
+    <div class="image-modal" id="image-modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img class="modal-image" id="modal-image" src="" alt="">
+        </div>
+        <div class="modal-info">
+            <h3 class="modal-title" id="modal-title"></h3>
+            <p class="modal-description" id="modal-description"></p>
+            <button class="modal-download-btn" id="modal-download-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                دانلود تصویر
+            </button>
+        </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const homeLink = document.querySelector('a[href="/"]');
             const aboutLink = document.querySelector('a[href="/about"]');
+            const galleryLink = document.querySelector('a[href="/gallery"]');
             const homePage = document.getElementById('home-page');
             const aboutPage = document.getElementById('about-page');
+            const galleryPage = document.getElementById('gallery-page');
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const navLinks = document.getElementById('nav-links');
             
@@ -601,6 +1080,8 @@
                 
                 if (pageId === 'about-page') {
                     title += " | حافظ شناسی";
+                } else if (pageId === 'gallery-page') {
+                    title += " | تصاویر حافظ";
                 }
                 
                 document.title = title;
@@ -616,6 +1097,11 @@
                 showPage('about-page', aboutLink);
             });
             
+            galleryLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('gallery-page', galleryLink);
+            });
+            
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {
                     let linkElement;
@@ -624,6 +1110,8 @@
                         linkElement = homeLink;
                     } else if (event.state.page === 'about-page') {
                         linkElement = aboutLink;
+                    } else if (event.state.page === 'gallery-page') {
+                        linkElement = galleryLink;
                     }
                     
                     if (linkElement) {
@@ -635,10 +1123,67 @@
             const path = window.location.pathname;
             if (path === '/about') {
                 showPage('about-page', aboutLink);
+            } else if (path === '/gallery') {
+                showPage('gallery-page', galleryLink);
             } else {
                 history.replaceState({page: 'home-page'}, '', '/');
             }
+            
+            const galleryImages = document.querySelectorAll('.gallery-item-image');
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalDownloadBtn = document.getElementById('modal-download-btn');
+            
+            galleryImages.forEach(image => {
+                image.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('download-btn')) {
+                        const src = this.getAttribute('data-src');
+                        const title = this.getAttribute('data-title');
+                        const description = this.getAttribute('data-description');
+                        
+                        modalImage.src = src;
+                        modalTitle.textContent = title;
+                        modalDescription.textContent = description;
+                        modalDownloadBtn.onclick = function() {
+                            downloadImage(src, title);
+                        };
+                        
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            window.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
         });
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function downloadImage(imageUrl, imageName) {
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = imageName + '.jpg';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
         async function getFal() {
             const apiUrl = 'https://api.falehafez.org/';
